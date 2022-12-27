@@ -1,0 +1,4 @@
+PODs
+
+- 1:1 relation with Containers, its not retrictive by the way, there can be more container but it's different type
+- One Node can contain more than just one PODs

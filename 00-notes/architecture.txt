@@ -1,0 +1,14 @@
+Architecture:
+
+Cluster:
+- Master nodes
+    Components:
+        - API Server: Allows to interac with the cluster
+        - etcd: Its a key-value store that stores cluster information in a distributed manner
+        - Controller: Detecs when Nodes go down and make decisions
+        - Scheduler: Distributes the work across the Nodes 
+- Node
+    Components:
+        - kubelet: Agent in every Node in the cluster makes sure the container are running 
+        - Container Runtime: Underlying software that run
+        s docker containers

@@ -1,0 +1,18 @@
+Deployments:
+
+- It's a one step higher in the hierarchy of POD -> REPLICASET -> DEPLOYMENT
+- It uses pretty much the same template as replicaset
+
+Deployment Rollout and versioning:
+
+- When there's a new update in deployment, it triggers a Rollout, and name it revision 1,2,3...10
+    To update:
+    - kubectl apply -f deployment-definition.yaml
+    - kubectl set image deployment/myapp-deployment / This is no recomemder since it won't be configured in the specification file
+    To check:
+    - kubectl rollout status deployment/myapp-deployment
+    - kubectl rollout history deployment/myapp-deployment
+
+- Deployment strategies:
+    - Recreate: Destroying the old instances and launch new-one. The app won't be available during this process
+    - Rolling update: Destroy instances one-by-one and launching the new one so the app remains available

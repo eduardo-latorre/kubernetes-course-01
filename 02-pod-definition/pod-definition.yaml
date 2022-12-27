@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+  # Can be set only what k8 expects
+  name: my-app
+  labels:
+    # Under labels it's possible to set whatever necesary key to group PODs
+    app: myapp
+    type: front-end
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx

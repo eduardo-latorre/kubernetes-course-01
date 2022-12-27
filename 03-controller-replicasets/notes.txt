@@ -1,0 +1,22 @@
+ReplicationController & ReplicaSet:
+- Can work with just one POD and start a new one if it fails
+- Makes sure a number of replicas are up
+- Scale up if demand increases
+
+ReplicationController vs ReplicaSet
+- ReplicaSet has a minor difference regarding to a new property "selector" that allows to consider other PODs already created
+
+Scaling
+There're 4 ways to do it:
+    1.- Updating the file and then run:
+        kubectl replace -f <replicaset-file.yaml>
+    2.- By using the command line:
+        kubectl scale --replicas=6 -f <replicaset-file.yaml>
+    3.- Using the command line:
+        kubectl scale --replicase=6 replicaset <replica-name>
+    4.- Editing the default yaml file
+        kubectl edit replicaset <replicaset-file>
+
+ReplicaSet scenarios:
+- If a POD gets deleted, intencionally for example, replicaset will raise another one POD
+- If there are 3 replicas running and then another POD with same label gets started, replicaset will terminate it and keeps it waiting

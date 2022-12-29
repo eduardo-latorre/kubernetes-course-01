@@ -8,7 +8,7 @@ Deployment Rollout and versioning:
 - When there's a new update in deployment, it triggers a Rollout, and name it revision 1,2,3...10
     To update:
     - kubectl apply -f deployment-definition.yaml
-    - kubectl set image deployment/myapp-deployment / This is no recomemder since it won't be configured in the specification file
+    - kubectl set image deployment/myapp-deployment  //This is no recomemder since it won't be configured in the specification file
     To check:
     - kubectl rollout status deployment/myapp-deployment
     - kubectl rollout history deployment/myapp-deployment

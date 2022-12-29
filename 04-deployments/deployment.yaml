@@ -1,21 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: myapp-deployment
   labels:
-    app: my-deployment
-    tier: deployment
+    tier: frontend
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: myapp
+  replicas: 6
   template:
     metadata:
-      name: contianer
+      name: nginx-2
       labels:
         app: myapp
     spec:
       containers:
         - name: nginx
           image: nginx
+
+# - Rollout and Rollback lab
+# kubectl rollout status deployment myapp-deployment
+# kubectl rollout history deployment myapp-deployment
+# - This won't retrieve change-cause because it's missing --record option
+# kubectl create -f 04-deployments/deployment.yaml --record
+# - It will record the creeation of the deployment so you can that annotation when describing
+# kubectl edit deployment myapp-deployment --record
+# - Now you there a new revision 2 in description of this deployment
+# kubectl set image deployment myapp-deployment nginx=nginx:1.18-perl --record
+# - Now we changed the image and record this to new history
+# kubectl rollout undo deployment/myapp-deployment

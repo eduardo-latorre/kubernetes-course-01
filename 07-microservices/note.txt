@@ -1,0 +1,2 @@
+There're an issue related to worker-app:
+ https://kodekloud.com/community/t/crashloopbackoff-error-when-running-worker-app-pod/10979/10
